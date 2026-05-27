@@ -1,5 +1,17 @@
 // Nouna Shop - Client-Side API Helper Layer
 
+// Redirect API calls to local server when hosted on GitHub Pages
+const BASE_URL = window.location.hostname.includes('github.io') ? 'http://localhost:3000' : '';
+if (BASE_URL) {
+  const originalFetch = window.fetch;
+  window.fetch = function(input, init) {
+    if (typeof input === 'string' && input.startsWith('/api/')) {
+      input = BASE_URL + input;
+    }
+    return originalFetch(input, init);
+  };
+}
+
 const API = {
   // Session Token Handlers (Secure Authentication)
   getToken() {
