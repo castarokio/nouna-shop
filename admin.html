@@ -7,6 +7,8 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Stylesheet -->
@@ -17,16 +19,14 @@
       background-color: #fcf8f9;
     }
     .admin-header {
-      background: var(--dark);
-      color: var(--white);
+      background: var(--white);
+      color: var(--dark);
       padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: var(--shadow-sm);
-    }
-    .admin-header .logo {
-      color: var(--white);
+      border-bottom: 1px solid var(--border-color);
     }
     .admin-badge {
       font-family: var(--font-main);
@@ -44,9 +44,9 @@
       align-self: center;
     }
     .back-store-btn {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary-light);
       padding: 8px 16px;
       border-radius: 30px;
       text-decoration: none;
@@ -60,6 +60,7 @@
     .back-store-btn:hover {
       background-color: var(--primary);
       border-color: var(--primary);
+      color: var(--white) !important;
     }
     .admin-main-container {
       flex-grow: 1;
@@ -73,8 +74,8 @@
     
     <!-- Admin Header -->
     <header class="admin-header">
-      <a href="index.html" class="logo">
-        nouna<span class="logo-dot">.</span><span class="admin-badge">Admin</span>
+      <a href="index.html" class="logo-image-wrapper">
+        <img src="images/logo_clean.png" alt="nouna." class="logo-img"><span class="admin-badge">Admin</span>
       </a>
       <a href="index.html" class="back-store-btn">
         <i class="fa-solid fa-store"></i> View Storefront
