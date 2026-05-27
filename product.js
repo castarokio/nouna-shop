@@ -231,6 +231,8 @@ function setupEventListeners() {
       reviewsTabBtn.scrollIntoView({ behavior: 'smooth' });
     }
   });
+  
+  setupPolicyModal();
 }
 
 function toggleSidebar() {
@@ -963,5 +965,90 @@ function handleSearchRedirect() {
     window.location.href = `index.html?search=${encodeURIComponent(query)}`;
   } else {
     window.location.href = `index.html`;
+  }
+}
+
+function setupPolicyModal() {
+  const policyBtns = document.querySelectorAll('[data-policy]');
+  const policyModal = document.getElementById('policy-modal');
+  const policyTitle = document.getElementById('policy-modal-title');
+  const policyContent = document.getElementById('policy-modal-content');
+  const policyCloseBtn = document.getElementById('policy-modal-close-btn');
+
+  const policies = {
+    payment: {
+      title: "💰 Payment Methods (Cash on Delivery)",
+      content: `
+        <p style="margin-bottom: 12px;"><strong>Cash on Delivery (COD)</strong> is our exclusive payment method to ensure 100% security for all beauty lovers in Algeria.</p>
+        <p style="margin-bottom: 12px;">Here is how it works:</p>
+        <ul style="margin-left: 20px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <li>🛒 Browse our store, add items to your cart, and enter your shipping details at checkout.</li>
+          <li>📞 Our support team will call you within 24 hours to confirm your order details and delivery address.</li>
+          <li>🚚 The package is dispatched and shipped directly to your house or office.</li>
+          <li>💵 You pay the delivery agent in cash only when you receive and inspect your parcel!</li>
+        </ul>
+        <p>No credit card, CIB card, or BaridiMob transfer is needed. Shop with absolute safety and peace of mind!</p>
+      `
+    },
+    shipping: {
+      title: "🚚 Shipping & Delivery Policy",
+      content: `
+        <p style="margin-bottom: 12px;">We ship premium cosmetics directly to your doorstep across all <strong>58 Wilayas of Algeria</strong>!</p>
+        <ul style="margin-left: 20px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <li>⏱️ <strong>Delivery Time</strong>: 2 to 5 business days depending on your province's distance.</li>
+          <li>📦 <strong>Courier Call</strong>: The delivery driver will phone you on the day of delivery to coordinate the exact drop-off time. Please keep your phone nearby!</li>
+          <li>📍 <strong>Coverage</strong>: Home delivery is available for all major municipalities and cities.</li>
+        </ul>
+        <p>Shipping rates are automatically computed at checkout based on your selected Wilaya. We work with Algeria's leading logistics networks to guarantee fast, safe transit of your cosmetics.</p>
+      `
+    },
+    terms: {
+      title: "📋 Terms & Conditions",
+      content: `
+        <p style="margin-bottom: 12px;">Welcome to Nouna Shop. By placing an order, you agree to the following terms:</p>
+        <ul style="margin-left: 20px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <li>📞 <strong>Order Confirmation</strong>: Every order requires a phone confirmation. We will call the phone number you provided. If we cannot reach you after multiple attempts, the order will be cancelled.</li>
+          <li>💄 <strong>Hygiene Policy</strong>: Due to the nature of cosmetics and personal hygiene products, opened or used makeup, lipsticks, and skincare items cannot be returned or refunded.</li>
+          <li>⚠️ <strong>Incorrect Details</strong>: Please ensure your phone number and Wilaya are correct. Orders with fake numbers will be automatically deleted by our system.</li>
+        </ul>
+      `
+    },
+    security: {
+      title: "🔒 100% Security Guarantee",
+      content: `
+        <p style="margin-bottom: 12px;">Your privacy and shopping security are our top priorities at Nouna Shop.</p>
+        <ul style="margin-left: 20px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <li>🛡️ <strong>Zero Financial Risk</strong>: Since we operate 100% on Cash on Delivery, you never enter credit card numbers, passwords, or bank logins. Online fraud is impossible.</li>
+          <li>👤 <strong>Data Privacy</strong>: Your name, phone number, and address are encrypted in our databases. We only share them with the delivery dispatchers to ship your order. We never sell or share your data with third parties.</li>
+          <li>✅ <strong>Genuine Products</strong>: All products on our storefront are authentic, dermatologically tested, and sourced from certified partners.</li>
+        </ul>
+      `
+    }
+  };
+
+  if (policyBtns && policyModal) {
+    policyBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const type = btn.dataset.policy;
+        if (policies[type]) {
+          policyTitle.innerHTML = policies[type].title;
+          policyContent.innerHTML = policies[type].content;
+          policyModal.classList.add('active');
+        }
+      });
+    });
+
+    if (policyCloseBtn) {
+      policyCloseBtn.addEventListener('click', () => {
+        policyModal.classList.remove('active');
+      });
+    }
+
+    policyModal.addEventListener('click', (e) => {
+      if (e.target === policyModal) {
+        policyModal.classList.remove('active');
+      }
+    });
   }
 }
