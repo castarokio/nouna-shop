@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouna Shop - Beauty & Cosmetics Boutique</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Confetti Canvas on Successful checkout -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app-container">
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar" id="announcement-bar">
+      <span>🎉 FLASH SALE! Get 30% off on all items today! Ends in:</span>
+      <span class="countdown-timer" id="flash-sale-timer">14:59</span>
+    </div>
+
+    <!-- Header Navbar -->
+    <header class="main-header">
+      <div class="left-nav">
+        <button class="hamburger-btn" id="sidebar-toggle-btn" aria-label="Open Menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <a href="index.html" class="logo" id="logo-nav-link">
+          nouna<span class="logo-dot">.</span>
+        </a>
+      </div>
+
+      <!-- Center Desktop Navigation Links -->
+      <ul class="header-nav" id="desktop-header-nav">
+        <li><a href="#" class="header-nav-link active" data-category="All">Shop All</a></li>
+        <li><a href="#" class="header-nav-link" data-category="Lips">Lips</a></li>
+        <li><a href="#" class="header-nav-link" data-category="Skincare">Skincare</a></li>
+        <li><a href="#" class="header-nav-link" data-category="Eyes">Eyes</a></li>
+        <li><a href="#" class="header-nav-link" data-category="Perfumes">Perfumes</a></li>
+        <li><a href="#" class="header-nav-link" data-category="Accessories">Accessories</a></li>
+      </ul>
+
+      <div class="right-nav">
+        <button class="icon-btn" id="search-toggle-btn" aria-label="Toggle Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="admin.html" class="icon-btn" id="admin-nav-btn" aria-label="Admin Panel">
+          <i class="fa-solid fa-user-gear"></i>
+        </a>
+        <button class="icon-btn cart-icon-wrapper" id="cart-drawer-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cart-badge-count">0</span>
+        </button>
+      </div>
+
+      <!-- Slide-down Search Bar -->
+      <div class="header-search-bar" id="header-search-bar">
+        <div class="header-search-inner">
+          <input type="text" class="search-input" id="search-input" placeholder="Search for lipsticks, serums, beauty quartz...">
+          <button class="search-btn" id="search-btn" aria-label="Submit Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hamburger Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Hamburger Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo">
+          nouna<span class="logo-dot">.</span>
+        </a>
+        <button class="close-btn" id="sidebar-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#" class="sidebar-link active" id="sidebar-home-link">
+            <i class="fa-solid fa-house"></i> Storefront
+          </a>
+        </li>
+        <li>
+          <a href="admin.html" class="sidebar-link" id="sidebar-admin-link">
+            <i class="fa-solid fa-user-lock"></i> Admin Dashboard
+          </a>
+        </li>
+      </ul>
+      <h3 class="sidebar-categories-title">Categories</h3>
+      <ul class="sidebar-menu" id="sidebar-categories-list">
+        <!-- Categories populated via JS -->
+      </ul>
+      <div class="sidebar-footer">
+        <p><i class="fa-solid fa-shield-halved"></i> 100% Secure Checkout</p>
+        <p><i class="fa-solid fa-truck-fast"></i> Cash on Delivery in Algeria</p>
+      </div>
+    </aside>
+
+    <!-- ==================== VIEW: STOREFRONT ==================== -->
+    <main class="store-view-container" id="store-view">
+      
+      <!-- Hero Banner -->
+      <section class="hero-section">
+        <div class="hero-banner">
+          <div class="hero-circle hero-circle-1"></div>
+          <div class="hero-circle hero-circle-2"></div>
+          
+          <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> Limited Stock Available</span>
+            <h1 class="hero-title">Reveal Your <span>Natural Glow</span> & Beauty</h1>
+            <p class="hero-subtitle">Discover premium organic skincare and cosmetics curated specially for you. Fast shipping to all 58 Algerian Wilayas, pay only upon delivery!</p>
+            <button class="hero-btn" id="hero-cta-btn">Shop Best Sellers <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          
+          <div class="hero-image-container">
+            <img src="images/lipstick.jpg" alt="Nouna Shop Cosmetics" class="hero-image" id="hero-banner-image">
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Pills Filter Bar -->
+      <section class="categories-container">
+        <div class="categories-list" id="category-pills-list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- Products Grid Section -->
+      <section class="storefront-section">
+        <div class="section-header">
+          <h2 class="section-title" id="grid-section-title">All Products</h2>
+        </div>
+        <div class="products-grid" id="products-grid-container">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+      
+    </main>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="logo" style="color: var(--white); margin-bottom: 20px;">
+            nouna<span class="logo-dot">.</span>
+          </a>
+          <p class="footer-text">Nouna Shop is Algeria's leading luxury boutique for premium, vegan, and organic beauty products. Glow with confidence.</p>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Customer Care</h3>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Payment methods (COD)</a></li>
+            <li><a href="#" class="footer-link">Shipping and delivery policy</a></li>
+            <li><a href="#" class="footer-link">Terms and conditions</a></li>
+            <li><a href="#" class="footer-link">Security guarantee</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Contact & Help</h3>
+          <ul class="footer-links">
+            <li><span class="footer-link"><i class="fa-solid fa-phone"></i> +213 550 12 34 56</span></li>
+            <li><span class="footer-link"><i class="fa-solid fa-envelope"></i> contact@nounashop.com</span></li>
+            <li><span class="footer-link"><i class="fa-solid fa-location-dot"></i> Algiers, Algeria</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nouna Shop. All Rights Reserved. Crafted with love & premium security.</p>
+        <div class="footer-payments">
+          <i class="fa-solid fa-money-bill-wave" title="Cash on Delivery (Algeria)"></i>
+          <span style="font-size: 0.8rem; font-weight: 700; align-self: center;">CASH ON DELIVERY</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==================== DIALOG MODAL: PRODUCT DETAILS ==================== -->
+  <div class="modal-overlay" id="product-details-modal">
+    <div class="product-modal">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="modal-img-wrapper">
+        <span class="product-badge-discount" id="modal-product-discount">-30%</span>
+        <img src="" alt="" id="modal-product-image">
+      </div>
+
+      <div class="modal-body">
+        <span class="modal-category" id="modal-product-category">Lips</span>
+        <h2 class="modal-title" id="modal-product-name">Product Name</h2>
+        
+        <div class="product-rating">
+          <div class="stars" id="modal-product-stars">
+            <!-- JS populated -->
+          </div>
+          <span class="review-count" id="modal-product-review-count">(12 reviews)</span>
+        </div>
+
+        <div class="product-pricing">
+          <span class="current-price" id="modal-product-price">0 DA</span>
+          <span class="old-price" id="modal-product-old-price">0 DA</span>
+        </div>
+
+        <!-- FOMO details -->
+        <div class="modal-urgency-badge">
+          <i class="fa-solid fa-fire"></i>
+          <span id="modal-urgency-text">🔥 14 customers are looking at this item! Only 3 left.</span>
+        </div>
+
+        <p class="modal-description" id="modal-product-desc">
+          Product detailed description goes here.
+        </p>
+
+        <div class="modal-qty-container">
+          <span class="qty-label">Quantity:</span>
+          <div class="qty-selector">
+            <button class="qty-btn" id="modal-qty-minus"><i class="fa-solid fa-minus"></i></button>
+            <span class="qty-value" id="modal-qty-value">1</span>
+            <button class="qty-btn" id="modal-qty-plus"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+
+        <div class="modal-purchase-footer">
+          <button class="modal-buy-now-btn" id="modal-buy-now-btn">
+            <i class="fa-solid fa-cart-shopping"></i> Instant Buy (Cash On Delivery)
+          </button>
+        </div>
+
+        <!-- Reviews inside modal for high conversion -->
+        <div class="modal-reviews-section">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h4 class="reviews-heading" style="margin-bottom: 0; font-size: 1.1rem; font-weight: 700;"><i class="fa-regular fa-comments"></i> Customer Reviews</h4>
+            <button class="write-review-toggle-btn" id="write-review-toggle" style="background: none; border: 1px solid var(--primary); color: var(--primary); padding: 6px 12px; border-radius: 20px; font-family: var(--font-main); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: var(--transition);">
+              <i class="fa-solid fa-pen"></i> Write a Review
+            </button>
+          </div>
+
+          <!-- Collapsible Write Review Form -->
+          <div class="write-review-form-container" id="write-review-form-container" style="max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 20px; background: var(--bg-light); border-radius: var(--border-radius-md); border: 1px solid transparent; padding: 0 16px;">
+            <div style="padding: 16px 0;">
+              <h5 style="margin-bottom: 12px; font-weight: 700; color: var(--dark); font-size: 0.95rem;">Share your experience</h5>
+              <form id="submit-review-form">
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label" style="font-size: 0.85rem; display: block; font-weight: 600; margin-bottom: 6px;" for="review-author-name">Your Name</label>
+                  <input type="text" class="form-input" id="review-author-name" placeholder="e.g. Sarah M." required style="padding: 8px 12px; font-size: 0.9rem; width: 100%; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); outline: none;">
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label" style="font-size: 0.85rem; display: block; font-weight: 600; margin-bottom: 6px;">Your Rating</label>
+                  <div class="interactive-stars" id="review-stars-selector" style="color: #ccc; font-size: 1.5rem; display: flex; gap: 6px; cursor: pointer;">
+                    <i class="fa-solid fa-star selector-star" data-rating="1"></i>
+                    <i class="fa-solid fa-star selector-star" data-rating="2"></i>
+                    <i class="fa-solid fa-star selector-star" data-rating="3"></i>
+                    <i class="fa-solid fa-star selector-star" data-rating="4"></i>
+                    <i class="fa-solid fa-star selector-star" data-rating="5"></i>
+                  </div>
+                  <input type="hidden" id="review-rating-value" value="5">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                  <label class="form-label" style="font-size: 0.85rem; display: block; font-weight: 600; margin-bottom: 6px;" for="review-comment-text">Review Comment</label>
+                  <textarea class="form-input" id="review-comment-text" rows="3" placeholder="Tell other beauty lovers why you love this product..." required style="padding: 8px 12px; font-size: 0.9rem; resize: vertical; font-family: var(--font-main); width: 100%; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); outline: none;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 10px; font-size: 0.9rem; border-radius: var(--border-radius-md); border: none; cursor: pointer; background-color: var(--primary); color: var(--white); font-weight: 600; transition: var(--transition);">
+                  Submit For Admin Approval <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Inline review success alert -->
+          <div id="review-success-banner" style="display: none; background-color: #e6f9ed; border: 1px solid #b7ebb4; color: #1e7e34; border-radius: var(--border-radius-md); padding: 12px 16px; margin-bottom: 20px; font-size: 0.85rem; font-weight: 600; text-align: center; animation: scaleUp 0.3s ease;">
+            <i class="fa-solid fa-circle-check"></i> ✨ Thank you! Your review has been submitted for admin approval and moderation.
+          </div>
+
+          <div id="modal-reviews-container">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DIALOG MODAL: CART DRAWER OVERLAY ==================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h2 class="cart-drawer-title"><i class="fa-solid fa-bag-shopping"></i> Your Shopping Bag</h2>
+      <button class="close-btn" id="cart-drawer-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div class="cart-drawer-body" id="cart-drawer-body">
+      <!-- Placed products or Empty View populated by JS -->
+    </div>
+
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-summary-line">
+        <span class="cart-summary-label">Items Subtotal</span>
+        <span class="cart-item-price" id="cart-subtotal-price">0 DA</span>
+      </div>
+      <div class="cart-summary-line">
+        <span class="cart-summary-label">Estimated Shipping</span>
+        <span class="cart-item-price" id="cart-estimated-shipping">Calculated at checkout</span>
+      </div>
+      <div class="cart-summary-line total">
+        <span class="cart-summary-label total-label">Estimated Total</span>
+        <span class="current-price" id="cart-estimated-total">0 DA</span>
+      </div>
+      <button class="checkout-btn" id="cart-checkout-btn-trigger">
+        Proceed to Checkout <i class="fa-solid fa-circle-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== DIALOG MODAL: CHECKOUT FORM MODAL ==================== -->
+  <div class="modal-overlay" id="checkout-form-modal">
+    <div class="checkout-modal-body">
+      <button class="modal-close-btn" id="checkout-modal-close-btn" aria-label="Close Checkout">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <h2 class="checkout-modal-title">
+        <i class="fa-solid fa-truck-fast"></i> Complete Your Order
+      </h2>
+      
+      <form id="checkout-order-form">
+        <div class="form-group">
+          <label class="form-label" for="checkout-name">Full Name <span style="color: var(--primary);">*</span></label>
+          <input type="text" class="form-input" id="checkout-name" placeholder="First and Last Name" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="checkout-phone">Phone Number <span style="color: var(--primary);">*</span></label>
+          <input type="tel" class="form-input" id="checkout-phone" placeholder="05XX XX XX XX or 06XX XX XX XX" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="checkout-wilaya">Wilaya (Province) <span style="color: var(--primary);">*</span></label>
+          <select class="form-select" id="checkout-wilaya" required>
+            <option value="" disabled selected>-- Select your Wilaya --</option>
+            <!-- Populated via JS -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="checkout-baladia">Baladia (Municipality) <span style="color: var(--primary);">*</span></label>
+          <input type="text" class="form-input" id="checkout-baladia" placeholder="Your City / Baladia" required>
+        </div>
+
+        <!-- Checkout Summary Costs -->
+        <div class="order-cost-breakdown">
+          <div class="breakdown-row">
+            <span>Items Subtotal:</span>
+            <span id="checkout-breakdown-subtotal">0 DA</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Delivery Price:</span>
+            <span id="checkout-breakdown-shipping">0 DA</span>
+          </div>
+          <div class="breakdown-row total">
+            <span>Grand Total:</span>
+            <span id="checkout-breakdown-total">0 DA</span>
+          </div>
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px; display: flex; gap: 8px; align-items: flex-start;">
+          <i class="fa-solid fa-lock" style="color: var(--success); margin-top: 2px;"></i>
+          <span>Secure checkout. Your personal data is only used for shipping delivery and never shared. Pay cash when package arrives!</span>
+        </div>
+
+        <button type="submit" class="place-order-btn" id="place-order-submit-btn">
+          Confirm Order (Cash on Delivery) <i class="fa-solid fa-check"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- ==================== DIALOG MODAL: SUCCESS / CONGRATS ==================== -->
+  <div class="modal-overlay" id="checkout-success-modal">
+    <div class="checkout-modal-body" style="text-align: center; max-width: 480px; padding: 40px 30px;">
+      <div class="success-icon-wrapper" style="font-size: 4rem; color: var(--success); margin-bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 100px; height: 100px; border-radius: 50%; background-color: #e6f9ed; animation: heartbeat 1.5s infinite;">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h2 style="font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 10px;">Congratulations!</h2>
+      <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary); margin-bottom: 20px;">Shukran, <span id="success-client-name">Client</span>! Your order has been placed.</p>
+      
+      <div style="background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 20px; text-align: left; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+          <span style="color: var(--text-muted);">Order Code:</span>
+          <code id="success-order-code" style="font-weight: 700; color: var(--dark);">ORD-000000</code>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+          <span style="color: var(--text-muted);">Delivery Address:</span>
+          <span id="success-order-address" style="font-weight: 600; color: var(--dark);">Alger, Alger</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+          <span style="color: var(--text-muted);">Phone Number:</span>
+          <span id="success-order-phone" style="font-weight: 600; color: var(--dark);">0550000000</span>
+        </div>
+        <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 12px 0;">
+        <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 800;">
+          <span>Total to Pay:</span>
+          <span id="success-order-total" style="color: var(--primary);">0 DA</span>
+        </div>
+      </div>
+      
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 30px;">
+        <i class="fa-solid fa-phone-volume" style="color: var(--success); margin-right: 4px;"></i> Our call center team will phone you shortly to confirm your delivery details and dispatch your package.
+      </p>
+      
+      <button class="btn-primary" id="success-close-btn" style="width: 100%; padding: 14px; border-radius: var(--border-radius-md); border:none;">
+        Continue Shopping <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- JS Dependencies -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
