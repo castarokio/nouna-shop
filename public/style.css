@@ -179,9 +179,11 @@ body {
 
 .header-nav-link {
   font-family: var(--font-main);
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
   text-decoration: none;
   padding: 8px 4px;
   position: relative;
@@ -189,7 +191,7 @@ body {
 }
 
 .header-nav-link:hover, .header-nav-link.active {
-  color: var(--primary);
+  color: var(--dark);
 }
 
 .header-nav-link::after {
@@ -241,10 +243,10 @@ body {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  background-color: var(--primary-light);
+  background-color: var(--bg-light);
   border-radius: 30px;
-  padding: 6px 18px;
-  border: 1px solid transparent;
+  padding: 8px 20px;
+  border: 1px solid var(--border-color);
   transition: var(--transition);
 }
 
@@ -2018,6 +2020,9 @@ body {
   }
   .checkout-modal-body {
     padding: 30px;
+  }
+  .hamburger-btn {
+    display: none !important;
   }
 }
 
