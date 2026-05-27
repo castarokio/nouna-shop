@@ -1,0 +1,578 @@
+{
+  "admin_password": "admin123",
+  "categories": [
+    "All",
+    "Lips",
+    "Skincare",
+    "Eyes",
+    "Perfumes",
+    "Accessories"
+  ],
+  "wilayas": [
+    {
+      "code": 1,
+      "name": "1. Adrar",
+      "price": 900
+    },
+    {
+      "code": 2,
+      "name": "2. Chlef",
+      "price": 600
+    },
+    {
+      "code": 3,
+      "name": "3. Laghouat",
+      "price": 700
+    },
+    {
+      "code": 4,
+      "name": "4. Oum El Bouaghi",
+      "price": 650
+    },
+    {
+      "code": 5,
+      "name": "5. Batna",
+      "price": 600
+    },
+    {
+      "code": 6,
+      "name": "6. Béjaïa",
+      "price": 550
+    },
+    {
+      "code": 7,
+      "name": "7. Biskra",
+      "price": 700
+    },
+    {
+      "code": 8,
+      "name": "8. Béchar",
+      "price": 850
+    },
+    {
+      "code": 9,
+      "name": "9. Blida",
+      "price": 400
+    },
+    {
+      "code": 10,
+      "name": "10. Bouira",
+      "price": 450
+    },
+    {
+      "code": 11,
+      "name": "11. Tamanrasset",
+      "price": 1000
+    },
+    {
+      "code": 12,
+      "name": "12. Tébessa",
+      "price": 650
+    },
+    {
+      "code": 13,
+      "name": "13. Tlemcen",
+      "price": 600
+    },
+    {
+      "code": 14,
+      "name": "14. Tiaret",
+      "price": 600
+    },
+    {
+      "code": 15,
+      "name": "15. Tizi Ouzou",
+      "price": 450
+    },
+    {
+      "code": 16,
+      "name": "16. Alger (Algiers)",
+      "price": 300
+    },
+    {
+      "code": 17,
+      "name": "17. Djelfa",
+      "price": 600
+    },
+    {
+      "code": 18,
+      "name": "18. Jijel",
+      "price": 550
+    },
+    {
+      "code": 19,
+      "name": "19. Sétif",
+      "price": 500
+    },
+    {
+      "code": 20,
+      "name": "20. Saïda",
+      "price": 650
+    },
+    {
+      "code": 21,
+      "name": "21. Skikda",
+      "price": 550
+    },
+    {
+      "code": 22,
+      "name": "22. Sidi Bel Abbès",
+      "price": 600
+    },
+    {
+      "code": 23,
+      "name": "23. Annaba",
+      "price": 550
+    },
+    {
+      "code": 24,
+      "name": "24. Guelma",
+      "price": 600
+    },
+    {
+      "code": 25,
+      "name": "25. Constantine",
+      "price": 500
+    },
+    {
+      "code": 26,
+      "name": "26. Médéa",
+      "price": 450
+    },
+    {
+      "code": 27,
+      "name": "27. Mostaganem",
+      "price": 600
+    },
+    {
+      "code": 28,
+      "name": "28. M'Sila",
+      "price": 600
+    },
+    {
+      "code": 29,
+      "name": "29. Mascara",
+      "price": 600
+    },
+    {
+      "code": 30,
+      "name": "30. Ouargla",
+      "price": 800
+    },
+    {
+      "code": 31,
+      "name": "31. Oran",
+      "price": 550
+    },
+    {
+      "code": 32,
+      "name": "32. El Bayadh",
+      "price": 750
+    },
+    {
+      "code": 33,
+      "name": "33. Illizi",
+      "price": 1000
+    },
+    {
+      "code": 34,
+      "name": "34. Bordj Bou Arréridj",
+      "price": 500
+    },
+    {
+      "code": 35,
+      "name": "35. Boumerdès",
+      "price": 400
+    },
+    {
+      "code": 36,
+      "name": "36. El Tarf",
+      "price": 600
+    },
+    {
+      "code": 37,
+      "name": "37. Tindouf",
+      "price": 1200
+    },
+    {
+      "code": 38,
+      "name": "38. Tissemsilt",
+      "price": 600
+    },
+    {
+      "code": 39,
+      "name": "39. El Oued",
+      "price": 750
+    },
+    {
+      "code": 40,
+      "name": "40. Khenchela",
+      "price": 600
+    },
+    {
+      "code": 41,
+      "name": "41. Souk Ahras",
+      "price": 600
+    },
+    {
+      "code": 42,
+      "name": "42. Tipaza",
+      "price": 400
+    },
+    {
+      "code": 43,
+      "name": "43. Mila",
+      "price": 550
+    },
+    {
+      "code": 44,
+      "name": "44. Aïn Defla",
+      "price": 500
+    },
+    {
+      "code": 45,
+      "name": "45. Naâma",
+      "price": 750
+    },
+    {
+      "code": 46,
+      "name": "46. Aïn Témouchent",
+      "price": 600
+    },
+    {
+      "code": 47,
+      "name": "47. Ghardaïa",
+      "price": 750
+    },
+    {
+      "code": 48,
+      "name": "48. Relizane",
+      "price": 600
+    },
+    {
+      "code": 49,
+      "name": "49. El M'Ghair",
+      "price": 800
+    },
+    {
+      "code": 50,
+      "name": "50. El Meniaa",
+      "price": 800
+    },
+    {
+      "code": 51,
+      "name": "51. Ouled Djellal",
+      "price": 750
+    },
+    {
+      "code": 52,
+      "name": "52. Bordj Baji Mokhtar",
+      "price": 1200
+    },
+    {
+      "code": 53,
+      "name": "53. Béni Abbès",
+      "price": 900
+    },
+    {
+      "code": 54,
+      "name": "54. Timimoun",
+      "price": 900
+    },
+    {
+      "code": 55,
+      "name": "55. Touggourt",
+      "price": 800
+    },
+    {
+      "code": 56,
+      "name": "56. Djanet",
+      "price": 1200
+    },
+    {
+      "code": 57,
+      "name": "57. In Salah",
+      "price": 950
+    },
+    {
+      "code": 58,
+      "name": "58. In Guezzam",
+      "price": 1200
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Velvet Matte Lipstick (Rose Petal)",
+      "category": "Lips",
+      "price": 1800,
+      "discountPrice": 1200,
+      "stock": 12,
+      "description": "Indulge in our signature Velvet Matte Lipstick. A high-pigment formula that glides on smoothly, leaving a gorgeous blush-pink matte finish that lasts all day without drying your lips.",
+      "image": "images/lipstick.jpg",
+      "views": 24,
+      "sales": 142,
+      "images": [
+        "images/lipstick.jpg"
+      ],
+      "howToUse": "Apply directly to lips starting from the center and moving outwards. For a more defined look, line lips with a matching lip liner first.",
+      "ingredients": "Dimethicone, Octyldodecanol, Polyethylene, Polysilicone-11, Silica, Kaolin, Rose Flower Extract, Tocopheryl Acetate, Fragrance."
+    },
+    {
+      "id": "p2",
+      "name": "Glow Radiance Serum (2% Hyaluronic)",
+      "category": "Skincare",
+      "price": 2500,
+      "discountPrice": 1900,
+      "stock": 15,
+      "description": "Get the ultimate dewy, hydrated skin. Formulated with 2% pure hyaluronic acid, organic rose water extracts, and vitamin B5 to plump, nourish, and lock in moisture.",
+      "image": "images/serum.jpg",
+      "views": 47,
+      "sales": 389,
+      "images": [
+        "images/serum.jpg"
+      ],
+      "howToUse": "Apply 2-3 drops to clean, dry skin in the morning and evening. Gently press into the face and neck, avoiding the eye area. Follow with your favorite moisturizer.",
+      "ingredients": "Water (Aqua), Hyaluronic Acid, Rose Damascena Flower Water, Panthenol (Vitamin B5), Phenoxyethanol, Ethylhexylglycerin."
+    },
+    {
+      "id": "p3",
+      "name": "Pink Quartz Face Roller & Gua Sha Set",
+      "category": "Accessories",
+      "price": 3200,
+      "discountPrice": 2400,
+      "stock": 7,
+      "description": "Handcrafted from authentic Brazilian pink rose quartz. Use this beauty tool daily to reduce puffiness, promote lymphatic drainage, and relieve muscle tension in your face.",
+      "image": "images/gua_sha.jpg",
+      "views": 19,
+      "sales": 99,
+      "images": [
+        "images/gua_sha.jpg"
+      ],
+      "howToUse": "Apply a face oil or serum first. Use the larger roller for cheeks, forehead, and neck in upward/outward motions. Use the smaller roller under eyes. Use Gua Sha for deeper facial massage along the jawline and cheekbones.",
+      "ingredients": "100% Authentic Grade-A Brazilian Pink Rose Quartz Stone."
+    },
+    {
+      "id": "p4",
+      "name": "Blossom Eau de Parfum (50ml)",
+      "category": "Perfumes",
+      "price": 4800,
+      "discountPrice": 3900,
+      "stock": 5,
+      "description": "An elegant, captivating scent combining sweet peony blossoms, Bulgarian rose, vanilla beans, and a warm hint of white musk. Perfect for daily wear or romantic evenings.",
+      "image": "images/perfume.jpg",
+      "views": 33,
+      "sales": 156,
+      "images": [
+        "images/perfume.jpg"
+      ],
+      "howToUse": "Spray onto pulse points: wrists, neck, behind the ears, and inner elbows. Do not rub the perfume into your skin, as this can break down the fragrance molecules.",
+      "ingredients": "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Benzyl Salicylate, Linalool, Limonene, Geraniol, Citronellol."
+    },
+    {
+      "id": "p5",
+      "name": "Hydrating Lip Oil (Sweet Cherry)",
+      "category": "Lips",
+      "price": 1200,
+      "discountPrice": 950,
+      "stock": 20,
+      "description": "Combine the shine of a gloss with the intense nourishment of a balm. Our Sweet Cherry Lip Oil is enriched with jojoba and cherry seed oils for non-sticky, juicy, protected lips.",
+      "image": "images/lip_oil.jpg",
+      "views": 52,
+      "sales": 412,
+      "images": [
+        "images/lip_oil.jpg"
+      ],
+      "howToUse": "Glide over bare lips or layer over your lipstick for a glassy, high-shine moisturizing barrier.",
+      "ingredients": "Jojoba Seed Oil, Cherry Seed Oil, Hydrogenated Polydecene, Tocopherol, Squalane, Fragrance."
+    },
+    {
+      "id": "p6",
+      "name": "Gold Collagen Eye Patches (60 pcs)",
+      "category": "Skincare",
+      "price": 2200,
+      "discountPrice": 1650,
+      "stock": 9,
+      "description": "Rejuvenate tired eyes in 15 minutes! These luxury hydrogel eye patches are infused with active collagen, real gold particles, and green tea extracts to reduce dark circles and fine lines.",
+      "image": "images/eye_patches.jpg",
+      "views": 15,
+      "sales": 276,
+      "images": [
+        "images/eye_patches.jpg"
+      ],
+      "howToUse": "Use the enclosed spatula to lift patches, apply under clean dry eyes. Leave for 15-20 minutes. Discard patches and pat remaining serum into the skin.",
+      "ingredients": "Hydrolyzed Collagen, Colloidal Gold, Camellia Sinensis (Green Tea) Leaf Extract, Glycerin, Sodium Hyaluronate."
+    },
+    {
+      "id": "p7",
+      "name": "Volumizing Mascara (Deep Black)",
+      "category": "Eyes",
+      "price": 1600,
+      "discountPrice": 1100,
+      "stock": 14,
+      "description": "Define, lift, and lengthen your lashes with our zero-clump Volumizing Mascara. Designed with a flexible hourglass brush to coat every lash for 24 hours of bold volume.",
+      "image": "images/mascara.jpg",
+      "views": 29,
+      "sales": 219,
+      "images": [
+        "images/mascara.jpg"
+      ],
+      "howToUse": "Wiggle the brush from the lash root to the tip. Layer multiple coats for high-volume drama.",
+      "ingredients": "Water, Carnauba Wax, Stearic Acid, Iron Oxides (CI 77499), Acrylates Copolymer, beeswax."
+    },
+    {
+      "id": "p8",
+      "name": "Silky Satin Sleep Mask (Blush Pink)",
+      "category": "Accessories",
+      "price": 1500,
+      "discountPrice": 990,
+      "stock": 25,
+      "description": "Protect your skin and eyes from friction during sleep. Made from ultra-soft, hypoallergenic blush pink satin, this mask blocks out light completely for deep, luxurious beauty sleep.",
+      "image": "images/sleep_mask.jpg",
+      "views": 12,
+      "sales": 84,
+      "images": [
+        "images/sleep_mask.jpg"
+      ],
+      "howToUse": "Adjust the elastic strap to fit comfortably around your head. Place gently over eyes before sleeping.",
+      "ingredients": "100% High-Grade Hypoallergenic Satin Polyester."
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-110087",
+      "productId": "p6",
+      "name": "hamid",
+      "rating": 2,
+      "date": "May 27, 2026",
+      "text": "i did not love the actual  product to be hones plz fix costummer  treatment",
+      "approved": true
+    },
+    {
+      "id": "rev-seed-1",
+      "productId": "p1",
+      "name": "Sarah B.",
+      "rating": 5,
+      "date": "Yesterday",
+      "text": "OMG I love the Rose Petal lipstick! The pigment is beautiful and it stays on forever! Delivery to Alger was super fast.",
+      "approved": true
+    },
+    {
+      "id": "rev-seed-2",
+      "productId": "p2",
+      "name": "Nour M.",
+      "rating": 5,
+      "date": "2 days ago",
+      "text": "The Glow Radiance Serum makes my skin look so dewy. Highly recommend Nouna Shop!",
+      "approved": true
+    },
+    {
+      "id": "rev-seed-3",
+      "productId": "p3",
+      "name": "Lina K.",
+      "rating": 4,
+      "date": "1 week ago",
+      "text": "Perfect Gua Sha set. Very high quality rose quartz. It arrived safely and well-packaged. Shipping to Oran took 2 days.",
+      "approved": true
+    },
+    {
+      "id": "rev-seed-4",
+      "productId": "p4",
+      "name": "Amel D.",
+      "rating": 5,
+      "date": "2 weeks ago",
+      "text": "My husband bought me the Blossom Perfume and it smells amazing! I get compliments on it all the time.",
+      "approved": true
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-700201",
+      "customer": {
+        "name": "casta rokio",
+        "phone": "0540211250",
+        "wilaya": "15. Tizi Ouzou",
+        "baladia": "moradia"
+      },
+      "items": [
+        {
+          "id": "p6",
+          "name": "Gold Collagen Eye Patches (60 pcs)",
+          "price": 1650,
+          "qty": 1
+        }
+      ],
+      "subtotal": 1650,
+      "deliveryFee": 450,
+      "total": 2100,
+      "status": "Delivered",
+      "date": "5/27/2026, 1:34:50 PM"
+    },
+    {
+      "id": "ORD-264699",
+      "customer": {
+        "name": "hamid",
+        "phone": "0540211250",
+        "wilaya": "16. Alger (Algiers)",
+        "baladia": "moradia"
+      },
+      "items": [
+        {
+          "id": "p3",
+          "name": "Pink Quartz Face Roller & Gua Sha Set",
+          "price": 2400,
+          "qty": 1
+        }
+      ],
+      "subtotal": 2400,
+      "deliveryFee": 300,
+      "total": 2700,
+      "status": "Pending",
+      "date": "5/27/2026, 1:10:12 PM"
+    },
+    {
+      "id": "ORD-824512",
+      "customer": {
+        "name": "Yasmin Cherif",
+        "phone": "0655123456",
+        "wilaya": "16. Alger (Algiers)",
+        "baladia": "Hydra"
+      },
+      "items": [
+        {
+          "id": "p1",
+          "name": "Velvet Matte Lipstick (Rose Petal)",
+          "price": 1200,
+          "qty": 2
+        }
+      ],
+      "subtotal": 2400,
+      "deliveryFee": 300,
+      "total": 2700,
+      "status": "Delivered",
+      "date": "2026-05-26, 14:24:10"
+    },
+    {
+      "id": "ORD-190453",
+      "customer": {
+        "name": "Kamel Meziani",
+        "phone": "0551789456",
+        "wilaya": "31. Oran",
+        "baladia": "Bir El Djir"
+      },
+      "items": [
+        {
+          "id": "p2",
+          "name": "Glow Radiance Serum (2% Hyaluronic)",
+          "price": 1900,
+          "qty": 1
+        }
+      ],
+      "subtotal": 1900,
+      "deliveryFee": 550,
+      "total": 2450,
+      "status": "Shipped",
+      "date": "2026-05-27, 09:12:05"
+    }
+  ]
+}

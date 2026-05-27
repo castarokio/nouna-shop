@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouna Shop - Admin Dashboard Console</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styling overrides specifically for standalone admin page */
+    body {
+      background-color: #fcf8f9;
+    }
+    .admin-header {
+      background: var(--dark);
+      color: var(--white);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .admin-header .logo {
+      color: var(--white);
+    }
+    .admin-badge {
+      font-family: var(--font-main);
+      font-size: 0.8rem;
+      font-style: normal;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 10px;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      align-self: center;
+    }
+    .back-store-btn {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .back-store-btn:hover {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    .admin-main-container {
+      flex-grow: 1;
+      padding-bottom: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Admin Header -->
+    <header class="admin-header">
+      <a href="index.html" class="logo">
+        nouna<span class="logo-dot">.</span><span class="admin-badge">Admin</span>
+      </a>
+      <a href="index.html" class="back-store-btn">
+        <i class="fa-solid fa-store"></i> View Storefront
+      </a>
+    </header>
+
+    <main class="admin-main-container">
+      
+      <!-- Password Overlay Screen -->
+      <section class="admin-login-card" id="admin-login-card">
+        <div class="admin-login-icon"><i class="fa-solid fa-lock"></i></div>
+        <h2 class="admin-login-title">Admin Access Required</h2>
+        <p class="admin-login-subtitle">Please enter your password to access the control panel</p>
+        <div class="form-group">
+          <input type="password" class="form-input" id="admin-password-input" placeholder="Password (default is admin123)" style="text-align: center;">
+        </div>
+        <button class="admin-login-btn" id="admin-login-submit-btn">Unlock Panel</button>
+      </section>
+
+      <!-- Main Dashboard Console (Hidden until unlocked) -->
+      <section class="admin-view" id="admin-view" style="display: none;">
+        <div class="admin-layout" id="admin-layout-console">
+          
+          <!-- Left Tab Switchers -->
+          <nav class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="dashboard">
+              <i class="fa-solid fa-chart-line"></i> Dashboard
+            </button>
+            <button class="admin-tab-btn" data-tab="orders">
+              <i class="fa-solid fa-receipt"></i> Orders
+            </button>
+            <button class="admin-tab-btn" data-tab="products">
+              <i class="fa-solid fa-box-open"></i> Products
+            </button>
+            <button class="admin-tab-btn" data-tab="categories">
+              <i class="fa-solid fa-tags"></i> Categories
+            </button>
+            <button class="admin-tab-btn" data-tab="shipping">
+              <i class="fa-solid fa-truck-ramp-box"></i> Shipping Prices
+            </button>
+            <button class="admin-tab-btn" data-tab="reviews">
+              <i class="fa-regular fa-comment-dots"></i> Review Moderation
+            </button>
+            <button class="admin-tab-btn" data-tab="database">
+              <i class="fa-solid fa-database"></i> Backup & Reset
+            </button>
+            <button class="admin-tab-btn logout" id="admin-logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </nav>
+
+          <!-- Right Content Panels -->
+          <div class="admin-panel-content">
+            
+            <!-- TAB: Dashboard Analytics -->
+            <div class="admin-panel-tab-view active" id="tab-dashboard">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Business Analytics</h2>
+              </div>
+              <div class="analytics-grid">
+                <div class="analytics-card">
+                  <div class="analytics-icon-wrapper"><i class="fa-solid fa-wallet"></i></div>
+                  <div class="analytics-info">
+                    <span class="analytics-value" id="stat-revenue">0 DA</span>
+                    <span class="analytics-label">Total Revenue</span>
+                  </div>
+                </div>
+                <div class="analytics-card">
+                  <div class="analytics-icon-wrapper"><i class="fa-solid fa-cart-shopping"></i></div>
+                  <div class="analytics-info">
+                    <span class="analytics-value" id="stat-orders-count">0</span>
+                    <span class="analytics-label">Total Orders</span>
+                  </div>
+                </div>
+                <div class="analytics-card">
+                  <div class="analytics-icon-wrapper"><i class="fa-solid fa-hourglass-half"></i></div>
+                  <div class="analytics-info">
+                    <span class="analytics-value" id="stat-pending-orders">0</span>
+                    <span class="analytics-label">Pending Orders</span>
+                  </div>
+                </div>
+              </div>
+              
+              <h3 style="margin-bottom: 15px; font-weight: 700;">Recent Sales Activity</h3>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Customer</th>
+                      <th>Destination</th>
+                      <th>Date</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-orders-tbody">
+                    <!-- JS populated -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB: Orders Manager -->
+            <div class="admin-panel-tab-view" id="tab-orders" style="display: none;">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Orders Management</h2>
+              </div>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer Details</th>
+                      <th>Destination</th>
+                      <th>Items Purchased</th>
+                      <th>Delivery Cost</th>
+                      <th>Total (inc. del.)</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="orders-list-tbody">
+                    <!-- JS populated -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB: Products Manager -->
+            <div class="admin-panel-tab-view" id="tab-products" style="display: none;">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Product Catalog Control</h2>
+                <button class="btn-primary" id="add-product-btn-trigger"><i class="fa-solid fa-plus"></i> Add New Product</button>
+              </div>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Price</th>
+                      <th>Discount Price</th>
+                      <th>Stock</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="products-list-tbody">
+                    <!-- JS populated -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB: Categories Manager -->
+            <div class="admin-panel-tab-view" id="tab-categories" style="display: none;">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Manage Product Categories</h2>
+              </div>
+              <div class="admin-form" style="grid-template-columns: 1fr; max-width: 400px; margin-bottom: 30px;">
+                <div class="form-group">
+                  <label class="form-label" for="new-category-input">Add Category</label>
+                  <div style="display: flex; gap: 10px;">
+                    <input type="text" class="form-input" id="new-category-input" placeholder="e.g. Lipsticks">
+                    <button class="btn-primary" id="new-category-add-btn">Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="admin-table" style="max-width: 500px;">
+                  <thead>
+                    <tr>
+                      <th>Category Name</th>
+                      <th style="text-align: right;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="categories-list-tbody">
+                    <!-- JS populated -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB: Shipping Prices Manager -->
+            <div class="admin-panel-tab-view" id="tab-shipping" style="display: none;">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Custom Wilaya Delivery Costs</h2>
+              </div>
+              <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted);">Adjust the Cash on Delivery (COD) shipping fees for each of the 58 Wilayas in Algeria. Changes apply instantly to storefront checkout calculations.</p>
+              <div class="shipping-grid" id="shipping-costs-grid-container">
+                <!-- JS populated -->
+              </div>
+            </div>
+
+            <!-- TAB: Review Moderation Queue -->
+            <div class="admin-panel-tab-view" id="tab-reviews" style="display: none;">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Review Moderation Queue</h2>
+              </div>
+              <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted);">Approve or decline customer-submitted reviews before they are displayed on the storefront. Approved reviews will appear on their respective product details pages.</p>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Reviewer</th>
+                      <th>Rating</th>
+                      <th>Review Message</th>
+                      <th>Date Submitted</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="reviews-list-tbody">
+                    <!-- JS populated -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB: Backup & Restore -->
+            <div class="admin-panel-tab-view" id="tab-database" style="display: none;">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Data Protection & Reset</h2>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div>
+                  <h3 style="margin-bottom: 8px;">Backup Database</h3>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Save all orders, custom shipping costs, categories, and products to a JSON file on your machine.</p>
+                  <button class="btn-primary" id="db-export-btn"><i class="fa-solid fa-file-export"></i> Export JSON Database</button>
+                </div>
+                <hr style="border: 0; border-top: 1px solid var(--border-color);">
+                <div>
+                  <h3 style="margin-bottom: 8px;">Import Database</h3>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Restore a previously exported database file. Note: This will overwrite your current configuration.</p>
+                  <input type="file" id="db-import-file-input" accept=".json" style="display: none;">
+                  <button class="btn-secondary" id="db-import-btn-trigger"><i class="fa-solid fa-file-import"></i> Upload & Import JSON</button>
+                </div>
+                <hr style="border: 0; border-top: 1px solid var(--border-color);">
+                <div>
+                  <h3 style="color: var(--danger); margin-bottom: 8px;">Factory Reset</h3>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Wipe all custom configurations, orders, products, and restore the shop's default seed settings.</p>
+                  <button class="btn-secondary" id="db-reset-btn" style="color: var(--danger); border-color: var(--danger);"><i class="fa-solid fa-triangle-exclamation"></i> Reset to Factory Defaults</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer" style="padding-top: 40px; padding-bottom: 20px;">
+      <div class="footer-bottom" style="margin-top: 0; border-top: none;">
+        <p>&copy; 2026 Nouna Shop Admin Control Panel. Crafted with love & premium security.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==================== DIALOG MODAL: ADD/EDIT PRODUCT ==================== -->
+  <div class="modal-overlay" id="product-form-modal">
+    <div class="checkout-modal-body" style="max-width: 600px;">
+      <button class="modal-close-btn" id="product-form-close-btn" aria-label="Close Product Form">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <h2 class="checkout-modal-title" id="product-form-title">
+        <i class="fa-solid fa-box-open"></i> Add Product
+      </h2>
+      
+      <form id="admin-product-form" class="admin-form">
+        <input type="hidden" id="product-form-id">
+        
+        <div class="form-group admin-form-full">
+          <label class="form-label" for="product-name">Product Name</label>
+          <input type="text" class="form-input" id="product-name" placeholder="e.g. Velvet Matte Lipstick" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="product-category">Category</label>
+          <select class="form-select" id="product-category" required>
+            <!-- JS populated -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="product-stock">Stock Quantity</label>
+          <input type="number" class="form-input" id="product-stock" min="0" placeholder="e.g. 10" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="product-price">Original Price (DA)</label>
+          <input type="number" class="form-input" id="product-price" min="0" placeholder="e.g. 1800" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="product-discount">Discount Price (DA)</label>
+          <input type="number" class="form-input" id="product-discount" min="0" placeholder="e.g. 1200 (optional)">
+        </div>
+
+        <div class="form-group admin-form-full">
+          <label class="form-label" for="product-desc">Description</label>
+          <textarea class="form-input" id="product-desc" rows="3" placeholder="Describe features, size, instructions..." required style="resize: vertical; font-family: var(--font-main);"></textarea>
+        </div>
+
+        <div class="form-group admin-form-full">
+          <label class="form-label">Product Pictures (Upload Multiple)</label>
+          <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+            <input type="file" id="product-images-upload" accept="image/*" multiple style="display: none;">
+            <button type="button" class="btn-secondary" id="product-images-upload-btn" style="padding: 8px 16px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload Images
+            </button>
+            <span id="upload-status-text" style="font-size: 0.85rem; color: var(--text-muted); align-self: center;"></span>
+          </div>
+          <!-- Uploaded images preview list -->
+          <div id="product-images-preview-list" style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 15px; background: var(--bg-light); border: 1px dashed var(--border-color); border-radius: var(--border-radius-md); padding: 12px; min-height: 80px; align-items: center;">
+            <span style="font-size: 0.85rem; color: var(--text-muted); width: 100%; text-align: center;">No pictures uploaded. Upload images to begin.</span>
+          </div>
+          <input type="hidden" id="product-image" required>
+        </div>
+
+        <div class="form-group admin-form-full">
+          <label class="form-label" for="product-how-to-use">How to Use</label>
+          <textarea class="form-input" id="product-how-to-use" rows="2" placeholder="Step-by-step guidelines..." style="resize: vertical; font-family: var(--font-main);"></textarea>
+        </div>
+
+        <div class="form-group admin-form-full">
+          <label class="form-label" for="product-ingredients">Ingredients</label>
+          <textarea class="form-input" id="product-ingredients" rows="2" placeholder="List of formula components..." style="resize: vertical; font-family: var(--font-main);"></textarea>
+        </div>
+
+        <div class="admin-form-btn-container">
+          <button type="button" class="btn-secondary" id="product-form-cancel">Cancel</button>
+          <button type="submit" class="btn-primary" id="product-form-save">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- DB scripts and Admin panel code -->
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

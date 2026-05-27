@@ -1,0 +1,17 @@
+{
+  "name": "nouna-shop",
+  "version": "1.0.0",
+  "description": "Full-stack beauty and cosmetics e-commerce store with secure admin panel and custom Algerian delivery rates.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'No build step required for static assets'"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "author": "Nouna Shop Team",
+  "license": "ISC"
+}
