@@ -2,6 +2,7 @@
 
 // Global Cache State (Fetched from Server)
 let currentProduct = null;
+let storeCategories = [];
 let storeWilayas = [];
 let productReviews = [];
 
@@ -16,6 +17,7 @@ const elements = {
   sidebarOverlay: document.getElementById('sidebar-overlay'),
   sidebarToggleBtn: document.getElementById('sidebar-toggle-btn'),
   sidebarCloseBtn: document.getElementById('sidebar-close-btn'),
+  sidebarCategoriesList: document.getElementById('sidebar-categories-list'),
   
   // Navigation Logo
   logoNavLink: document.getElementById('logo-nav-link'),
@@ -147,6 +149,12 @@ async function initProductPage() {
 
     storeWilayas = await API.getWilayas();
     productReviews = await API.getProductReviews(productId);
+    try {
+      storeCategories = await API.getCategories();
+      renderSidebarCategories();
+    } catch (catErr) {
+      console.warn("Could not load sidebar categories:", catErr);
+    }
 
     // Populate dropdowns & totals
     populateWilayasDropdown();
@@ -966,6 +974,21 @@ function handleSearchRedirect() {
   } else {
     window.location.href = `index.html`;
   }
+}
+
+function renderSidebarCategories() {
+  if (!elements.sidebarCategoriesList) return;
+  elements.sidebarCategoriesList.innerHTML = '';
+  
+  storeCategories.filter(c => c !== "All").forEach(cat => {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = `index.html?category=${encodeURIComponent(cat)}`;
+    link.className = 'sidebar-link';
+    link.innerHTML = `<i class="fa-solid fa-angle-right"></i> ${cat}`;
+    li.appendChild(link);
+    elements.sidebarCategoriesList.appendChild(li);
+  });
 }
 
 function setupPolicyModal() {
