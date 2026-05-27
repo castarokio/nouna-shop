@@ -151,6 +151,24 @@ body {
   line-height: 0;
 }
 
+/* Image-based Logo styles */
+.logo-image-wrapper {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.logo-image-wrapper:hover .logo-img {
+  transform: scale(1.05);
+}
+
 /* Centered Desktop Menu Navigation */
 .header-nav {
   display: flex;
