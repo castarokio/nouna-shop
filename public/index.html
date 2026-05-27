@@ -168,10 +168,10 @@
         <div>
           <h3 class="footer-col-title">Customer Care</h3>
           <ul class="footer-links">
-            <li><a href="#" class="footer-link">Payment methods (COD)</a></li>
-            <li><a href="#" class="footer-link">Shipping and delivery policy</a></li>
-            <li><a href="#" class="footer-link">Terms and conditions</a></li>
-            <li><a href="#" class="footer-link">Security guarantee</a></li>
+            <li><a href="#" class="footer-link" data-policy="payment">Payment methods (COD)</a></li>
+            <li><a href="#" class="footer-link" data-policy="shipping">Shipping and delivery policy</a></li>
+            <li><a href="#" class="footer-link" data-policy="terms">Terms and conditions</a></li>
+            <li><a href="#" class="footer-link" data-policy="security">Security guarantee</a></li>
           </ul>
         </div>
         <div>
@@ -438,6 +438,23 @@
       <button class="btn-primary" id="success-close-btn" style="width: 100%; padding: 14px; border-radius: var(--border-radius-md); border:none;">
         Continue Shopping <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
       </button>
+    </div>
+  </div>
+
+  <!-- ==================== DIALOG MODAL: POLICIES OVERLAY ==================== -->
+  <div class="modal-overlay" id="policy-modal">
+    <div class="checkout-modal-body" style="max-width: 600px;">
+      <button class="modal-close-btn" id="policy-modal-close-btn" aria-label="Close Policy">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <h2 class="checkout-modal-title" id="policy-modal-title" style="margin-bottom:15px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+        Policy Title
+      </h2>
+      
+      <div id="policy-modal-content" style="font-size: 0.95rem; line-height: 1.6; color: var(--text); max-height: 60vh; overflow-y: auto; padding-right: 6px;">
+        Policy content...
+      </div>
     </div>
   </div>
 
